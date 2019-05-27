@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../actionreuse/.idea/actionreuse.iml" filepath="$PROJECT_DIR$/../actionreuse/.idea/actionreuse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../multiagent-particle-envs/.idea/multiagent-particle-envs.iml" filepath="$PROJECT_DIR$/../multiagent-particle-envs/.idea/multiagent-particle-envs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../teachingActionReuse/.idea/teachingActionReuse.iml" filepath="$PROJECT_DIR$/../teachingActionReuse/.idea/teachingActionReuse.iml" />
+    </modules>
+  </component>
+</project>

@@ -38,7 +38,7 @@ cv2.ocl.setUseOpenCL(False)
 
 os.environ['TF_CPP_MIN_LONG_LEVEL'] = '2'
 
-session_config = tf.ConfigProto(intra_op_parallelism_threads=1, inter_op_parallelism_threads=1, device_count={'GPU': 0})
+session_config = tf.ConfigProto(intra_op_parallelism_threads=0, inter_op_parallelism_threads=0)
 
 # ======================================================================================================================
 

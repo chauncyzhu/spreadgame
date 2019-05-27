@@ -518,6 +518,13 @@ class Agent(object):
         #self.advices_given = [0, 0, 0]
         #self.advices_taken = [0, 0, 0]
 
+        # reuse the advised actions
+        self.advised_action_prob_map = {}
+        self.initial_resue_prob = 1
+        self.decay_reuse_prob = 0.9999
+        self.epsilon = 0.0001
+
+
     def save_initial_state(self):
         filepath = os.path.join(save_summary_path, 'agent_'+str(self.id))
         file = open(filepath, "w")
@@ -616,53 +623,73 @@ class Agent(object):
             return self.model.greedy_action(observation)
         else:
             action = None
-            intended_action = self.model.greedy_action(observation)
+            if np.random.rand() < self.epsilon and self.config['exploration']:
+                intended_action = self.model.random_action()
+            else:
+                intended_action = self.model.greedy_action(observation)
 
-            if self.config['use_teaching'] and \
-                    self.budget_ask > 0 and \
-                    uncertainty >= self.config['threshold_ask']:
+            # reuse actions advised before the asking process
+            if tuple(observation) in self.advised_action_prob_map and self.config['reuse_action']:
+                curr_action_probs = self.advised_action_prob_map[observation]
+                # use the action with corresponding probability
+                for prob_id in np.argsort(curr_action_probs)[::-1]:
+                    if np.random.rand() < curr_action_probs[prob_id]:
+                        action = prob_id
 
-                if self.config['advice_asking_mode'] == 0:  # Oracle advice
-                    action = self.best_action(observation)
-
-                elif self.config['advice_asking_mode'] == 1:  # Always ask the expert agent (preset, agent 0)
-                    if self.id != 0 and self.agents[0].budget_give > 0:
-                        action = self.agents[0].model.greedy_action(observation)
-                        self.statistics.agent_advices_given[0] += 1
-                        self.agents[0].budget_give -= 1
-
-                elif self.config['advice_asking_mode'] == 2:  # Always ask the agents with smallest uncertainty
-                    uncertainties = [agent.get_state_uncertainty(observation) for agent in self.agents]
-                    best_agent = int(np.argmin(uncertainties))
-
-                    #if self.id == 0:
-                    #    print(uncertainties)
-
-                    if best_agent != self.id and self.agents[best_agent].budget_give > 0:
-                        action = self.agents[best_agent].model.greedy_action(observation)
-                        self.statistics.agent_advices_given[best_agent] += 1
-                        self.agents[best_agent].budget_give -= 1
-
-                elif self.config['advice_asking_mode'] == 3:  # Ask every agent - Realistic scenario
-
-                    advices = [agent.give_advice(observation, intended_action) for agent in self.other_agents]
-                    advices = list(filter(None.__ne__, advices))
-
-                    if advices:
-                        advices = np.array(advices)
-                        bin_count = np.bincount(advices, minlength=5)
-                        action = np.random.choice(np.flatnonzero(bin_count == bin_count.max()))
-
+                        # decay the reusing probability
+                        curr_action_probs[prob_id] *= self.decay_reuse_prob
+                        break
+            # no action will be reused, ask for advices
             if action is None:
+                if self.config['use_teaching'] and \
+                        self.budget_ask > 0 and \
+                        uncertainty >= self.config['threshold_ask']:
+
+                    if self.config['advice_asking_mode'] == 0:  # Oracle advice
+                        action = self.best_action(observation)
+
+                    elif self.config['advice_asking_mode'] == 1:  # Always ask the expert agent (preset, agent 0)
+                        if self.id != 0 and self.agents[0].budget_give > 0:
+                            action = self.agents[0].model.greedy_action(observation)
+                            self.statistics.agent_advices_given[0] += 1
+                            self.agents[0].budget_give -= 1
+
+                    elif self.config['advice_asking_mode'] == 2:  # Always ask the agents with smallest uncertainty
+                        uncertainties = [agent.get_state_uncertainty(observation) for agent in self.agents]
+                        best_agent = int(np.argmin(uncertainties))
+
+                        #if self.id == 0:
+                        #    print(uncertainties)
+
+                        if best_agent != self.id and self.agents[best_agent].budget_give > 0:
+                            action = self.agents[best_agent].model.greedy_action(observation)
+                            self.statistics.agent_advices_given[best_agent] += 1
+                            self.agents[best_agent].budget_give -= 1
+
+                    elif self.config['advice_asking_mode'] == 3:  # Ask every agent - Realistic scenario
+
+                        advices = [agent.give_advice(observation, intended_action) for agent in self.other_agents]
+                        advices = list(filter(None.__ne__, advices))
+
+                        if advices:
+                            advices = np.array(advices)
+                            bin_count = np.bincount(advices, minlength=5)
+                            action = np.random.choice(np.flatnonzero(bin_count == bin_count.max()))
+
+                if action is not None:
+                    # an action is advised
+                    self.last_action_is_advised = True
+                    self.statistics.agent_advices_taken[self.id] += 1
+                    self.budget_ask -= 1
+
+                    # set the reusing probability
+                    self.advised_action_prob_map[tuple(observation)][action] = self.initial_resue_prob
+            if action is None:
+                # if there is still no action that will be advised, use the intended action
                 self.last_action_is_advised = False
                 action = intended_action
-            else:
-                self.last_action_is_advised = True
-                self.statistics.agent_advices_taken[self.id] += 1
-                self.budget_ask -= 1
 
             return action
-
 
     def give_advice(self, observation, intended_action):
 
@@ -752,6 +779,11 @@ class Controller(object):
             self.stats.episode_duration = 0
             self.stats.episode_reward = 0
             self.stats.n_episodes += 1
+
+    def get_used_budget(self):
+        budgets = [[self.config['budget_ask'] - agent.budget_ask, self.config['budget_give'] - agent.budget_give]
+                   for agent in self.agents]
+        return np.mean(budgets, axis=0).astype(str)
 
     def observe(self, experience):
         for i, agent in enumerate(self.agents):
@@ -1016,20 +1048,14 @@ def main(config):
     done = True
 
     while True:
-
         if done:
             if controller.stats.n_episodes > 0:
                 controller.update_summary_episode()
-
                 if controller.stats.n_episodes % config['model_save_period'] == 0:
                     controller.save_model()
-
             if controller.stats.n_episodes % config['evaluation_period'] == 0:
-
                 render = controller.stats.n_episodes > 0 and controller.stats.n_episodes % 10e3 == 0
-
                 print("Running evaluation... " + str(controller.stats.n_episodes))
-
                 controller.stats.n_evaluations += 1
                 controller.evaluation_dir = \
                     os.path.join(controller.save_visualizations_path, str(controller.stats.n_episodes))
@@ -1076,7 +1102,8 @@ def main(config):
                                                                        controller.stats.evaluation_score])
 
                     if controller.stats.n_episodes % 2e3 == 0:
-                        print(controller.stats.evaluation_score_auc, controller.stats.evaluation_score)
+                        print("auc:", controller.stats.evaluation_score_auc, "--eval score:",controller.stats.evaluation_score
+                              ,'--budget ask and give:', " ".join(controller.get_used_budget()))
 
                     if controller.stats.n_episodes % 10e3 == 0:
                         controller.stats.auc_to_sh.append(controller.stats.evaluation_score_auc)
@@ -1157,7 +1184,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Description of your program')
 
     parser.add_argument('--run-id', type=str, default=None)
-    parser.add_argument('--process-index', type=int, default=0)
+    parser.add_argument('--process-index', type=int, default=1)
     parser.add_argument('--evaluation-seed', type=int, default=200)
 
     parser.add_argument('--game-height', type=int, default=10)
@@ -1211,6 +1238,10 @@ if __name__ == '__main__':
 
     # 0: Scratch, 1: 20-10-0, 2: 10-10-10 (Regional)
     parser.add_argument('--agents-knowledge-state', type=int, default=0)
+
+    # ==================================================================================================================
+    parser.add_argument('--exploration', type=bool, default=False)
+    parser.add_argument('--reuse-action', type=bool, default=False)
 
     # ==================================================================================================================
 

@@ -38,9 +38,8 @@ cv2.ocl.setUseOpenCL(False)
 
 os.environ['TF_CPP_MIN_LONG_LEVEL'] = '2'
 
-session_config = tf.ConfigProto(intra_op_parallelism_threads=0, inter_op_parallelism_threads=0)
-session_config.gpu_options.per_process_gpu_memory_fraction = 0.4
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+session_config = tf.ConfigProto(intra_op_parallelism_threads=1, inter_op_parallelism_threads=0, device_count={'GPU': 0})
+
 # ======================================================================================================================
 
 def copy_scripts(target_directory):

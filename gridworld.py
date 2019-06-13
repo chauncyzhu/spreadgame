@@ -460,10 +460,8 @@ class World(object):
         self.t += 1
         done = self.t >= self.max_t
 
-
         if self.render:
             self.render_traces()
-
 
         return done
 

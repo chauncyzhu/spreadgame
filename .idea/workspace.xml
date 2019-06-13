@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71ee0c85-e0d6-4afe-9247-f5b1cb0f61bd" name="Default Changelist" comment="" />
+    <list default="true" id="71ee0c85-e0d6-4afe-9247-f5b1cb0f61bd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/teachingActionReuse.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Runs/Scripts/20190527-160557-1/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Runs/Scripts/20190527-160557-1/dqn-actionreuse.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Runs/Scripts/20190527-160557-1/dqn-ps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Runs/Scripts/20190527-160557-1/gridworld.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Runs/Scripts/20190527-160557-1/multirun.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Runs/Scripts/20190527-160557-1/replay_buffer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Runs/Scripts/20190527-160557-1/segment_tree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Runs/Summaries/20190527-160557-1/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Runs/Summaries/20190527-160557-1/events.out.tfevents.1558944359.cike-chauncy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dqn-actionreuse.py" beforeDir="false" afterPath="$PROJECT_DIR$/dqn-actionreuse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dqn-ps.py" beforeDir="false" afterPath="$PROJECT_DIR$/dqn-ps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gridworld.py" beforeDir="false" afterPath="$PROJECT_DIR$/gridworld.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,42 +29,66 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/teachingDQN$dqn_ps.coverage" NAME="dqn-ps Coverage Results" MODIFIED="1558878466036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/teachingDQN$simple_spread.coverage" NAME="simple_spread Coverage Results" MODIFIED="1558937876920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../actionreuse/spreaddomain" />
-    <SUITE FILE_PATH="coverage/teachingActionReuse$dqn_actionreuse.coverage" NAME="dqn-actionreuse Coverage Results" MODIFIED="1558944354680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../teachingActionReuse" />
+    <SUITE FILE_PATH="coverage/teachingActionReuse$dqn_actionreuse.coverage" NAME="dqn-actionreuse Coverage Results" MODIFIED="1559029319811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../teachingActionReuse" />
     <SUITE FILE_PATH="coverage/teachingDQN$service_account.coverage" NAME="service_account Coverage Results" MODIFIED="1558754111839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/anaconda3/lib/python3.5/site-packages/oauth2client" />
+    <SUITE FILE_PATH="coverage/teachingActionReuse$dqn_ps__1_.coverage" NAME="dqn-ps (1) Coverage Results" MODIFIED="1558964941964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../teachingActionReuse" />
+    <SUITE FILE_PATH="coverage/teachingActionReuse$merge.coverage" NAME="merge Coverage Results" MODIFIED="1559551893626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame" />
+    <SUITE FILE_PATH="coverage/teachingActionReuse$merge__1_.coverage" NAME="merge (1) Coverage Results" MODIFIED="1559830156313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../Merge" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoctd.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1620">
+              <caret line="69" column="39" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="39" />
+              <folding>
+                <element signature="e#198#238#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoctdqvalues.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1560">
+              <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="21" />
+              <folding>
+                <element signature="e#133#173#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../teachingActionReuse/dqn-actionreuse.py">
+        <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/partakersharertd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+            <state relative-caret-position="180">
+              <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
               <folding>
-                <element signature="e#0#37#0" expanded="true" />
+                <element signature="e#110#150#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../teachingActionReuse/gridworld.py">
+        <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/utils/data_path.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2477">
-              <caret line="225" column="49" selection-start-line="225" selection-start-column="49" selection-end-line="225" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="270">
+              <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../teachingActionReuse/dqn-ps.py">
+        <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/partakersharervisit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="1158" column="61" selection-start-line="1158" selection-start-column="61" selection-end-line="1158" selection-end-column="61" />
+            <state relative-caret-position="204">
+              <caret line="72" column="37" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="37" />
               <folding>
-                <element signature="e#0#37#0" expanded="true" />
+                <element signature="e#124#164#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,46 +105,49 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Runs</find>
-      <find>local_workspace_dir</find>
-      <find>initial_model</find>
-      <find>state</find>
-      <find>advice-asking-mode</find>
-      <find>seed</find>
-      <find>advice-giving-mode</find>
-      <find>to agent</find>
-      <find>t-max</find>
-      <find>t_max</find>
-      <find>max_t</find>
-      <find>evaluation_levels</find>
+      <find>upload_</find>
       <find>n_evaluation_levels</find>
-      <find>run_id</find>
-      <find>process_index</find>
-      <find>ask</find>
-      <find>give</find>
-      <find>budget_give</find>
-      <find>give_advice</find>
-      <find>advice_asking_mode</find>
-      <find>random_action</find>
-      <find>random_ac</find>
-      <find>episo</find>
-      <find>epi</find>
-      <find>epsilon</find>
-      <find>observation</find>
-      <find>exploration</find>
+      <find>n_episodes</find>
+      <find>t_max</find>
+      <find>t-max</find>
       <find>max_eval_scores</find>
-      <find>agents_knowledge_state</find>
-      <find>last_action_is_advised</find>
+      <find>evaluation_levels_scores</find>
+      <find>uncerta</find>
+      <find>generate_level</find>
+      <find>exploring</find>
+      <find>lastStatus</find>
+      <find>AdHoc</find>
+      <find>learn_Q</find>
+      <find>learn</find>
+      <find>IN_GAME</find>
+      <find>select</find>
+      <find>advise_action</find>
+      <find>actionVisitTable</find>
+      <find>check_advise</find>
+      <find>log</find>
+      <find>stateActionTrace</find>
+      <find>server</find>
+      <find>Feature Bounds</find>
+      <find>usableActions</find>
+      <find>successEpisode</find>
+      <find>actions</find>
+      <find>'main action:', 11</find>
+      <find>final action</find>
+      <find>dis</find>
+      <find>grid</find>
     </findStrings>
     <replaceStrings>
       <replace />
+      <replace>Adhoc</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/../multiagent-particle-envs</dir>
+      <dir>$PROJECT_DIR$/../multiagent</dir>
+      <dir>$PROJECT_DIR$/../multiagent/robotsoccer</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../multiagent-particle-envs" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -116,8 +161,37 @@
         <option value="$PROJECT_DIR$/../actionreuse/spreaddomain/simple_spread.py" />
         <option value="$PROJECT_DIR$/../actionreuse/spreaddomain/dqn.py" />
         <option value="$PROJECT_DIR$/dqn-actionreuse.py" />
+        <option value="$PROJECT_DIR$/../teachingActionReuse/data/Runs/readme" />
+        <option value="$PROJECT_DIR$/../teachingActionReuse/gridworld.py" />
         <option value="$PROJECT_DIR$/../teachingActionReuse/dqn-ps.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/partakersharertdactionreuse.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/tilecoding.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/advice_util.py" />
         <option value="$PROJECT_DIR$/../teachingActionReuse/dqn-actionreuse.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/main/experiment.py" />
+        <option value="$PROJECT_DIR$/../multiagent/spreaddomain/dqn-actionreuse.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/agent.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/sarsatile.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/utils/oldAgent/dummy.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoctd.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/data/log/AdHocTD2_server.log" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoctdqvalues.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/evaluation/evaluation_two.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/evaluation/exp_utils.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/read_data.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/merge.py" />
+        <option value="$PROJECT_DIR$/../Merge/evaluation/exp_utils.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoc.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/experiment.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/sarsa.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoctdactionreuse.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoctdactionreusetwo.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoctdactionreusethree.py" />
+        <option value="$PROJECT_DIR$/../Merge/evaluation/evaluation.py" />
+        <option value="$PROJECT_DIR$/../Merge/merge.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/partakersharervisit.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/agents/partakersharertd.py" />
+        <option value="$PROJECT_DIR$/../multiagent/robotsoccer/utils/data_path.py" />
       </list>
     </option>
   </component>
@@ -139,11 +213,53 @@
           <expand>
             <path>
               <item name="teachingActionReuse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spreaddomain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teachingActionReuse" type="b2602c69:ProjectViewProjectNode" />
               <item name="actionreuse" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="teachingActionReuse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teachingActionReuse" type="462c0819:PsiDirectoryNode" />
+              <item name="Merge" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teachingActionReuse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Merge" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teachingActionReuse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Merge" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="agentData1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teachingActionReuse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Merge" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="agentData2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teachingActionReuse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="multiagent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teachingActionReuse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="multiagent" type="462c0819:PsiDirectoryNode" />
+              <item name="robotsoccer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teachingActionReuse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="multiagent" type="462c0819:PsiDirectoryNode" />
+              <item name="robotsoccer" type="462c0819:PsiDirectoryNode" />
+              <item name="agents" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teachingActionReuse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="multiagent" type="462c0819:PsiDirectoryNode" />
+              <item name="robotsoccer" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -153,14 +269,25 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../multiagent" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../actionreuse/spreaddomain" />
+      <recent name="$PROJECT_DIR$/../Merge/data/agentData2" />
+      <recent name="$PROJECT_DIR$/../multiagent/robotsoccer/agents" />
+      <recent name="$PROJECT_DIR$/../Merge" />
+      <recent name="$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/data/AdhocTDActionReuse_1_0.6" />
+      <recent name="$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/data/AdhocTDActionReuse_1_0.7" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../Merge/data/agentData2/AdhocTDActionReuseThree_0.9999" />
+      <recent name="$PROJECT_DIR$/../Merge/data/agentData1" />
+      <recent name="$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/data/AdhocTDActionReuse_1_0.9" />
+      <recent name="$PROJECT_DIR$/../multiagent/robotsoccer/agents" />
+      <recent name="$PROJECT_DIR$/../multiagent/robotsoccer" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -175,9 +302,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.dqn-actionreuse">
+  <component name="RunManager" selected="Python.merge (1)">
     <configuration name="dqn-actionreuse" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
-      <module name="teachingActionReuse" />
+      <module name="spreaddomain" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -198,20 +325,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="dqn-ps" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="teachingActionReuse" />
+    <configuration name="dqn-ps (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="spreaddomain" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../teachingActionReuse" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dqn-ps.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../teachingActionReuse/dqn-ps.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -220,20 +347,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="service_account" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="teachingActionReuse" />
+    <configuration name="merge (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Merge" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/anaconda3/lib/python3.5/site-packages/oauth2client" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Merge" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/anaconda3/lib/python3.5/site-packages/oauth2client/service_account.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Merge/merge.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="merge" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="multiagent" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/merge.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -266,16 +415,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.dqn-actionreuse" />
-      <item itemvalue="Python.dqn-ps" />
-      <item itemvalue="Python.service_account" />
       <item itemvalue="Python.simple_spread" />
+      <item itemvalue="Python.dqn-ps (1)" />
+      <item itemvalue="Python.merge" />
+      <item itemvalue="Python.merge (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.merge (1)" />
+        <item itemvalue="Python.merge" />
         <item itemvalue="Python.dqn-actionreuse" />
+        <item itemvalue="Python.dqn-ps (1)" />
         <item itemvalue="Python.simple_spread" />
-        <item itemvalue="Python.dqn-ps" />
-        <item itemvalue="Python.service_account" />
       </list>
     </recent_temporary>
   </component>
@@ -290,23 +441,26 @@
       <option name="presentableId" value="Default" />
       <updated>1558682608086</updated>
       <workItem from="1558682609542" duration="12256000" />
-      <workItem from="1558920615134" duration="15389000" />
+      <workItem from="1558920615134" duration="77894000" />
+      <workItem from="1559218886890" duration="5551000" />
+      <workItem from="1559532140346" duration="3946000" />
+      <workItem from="1559544878475" duration="21685000" />
+      <workItem from="1559647522993" duration="25566000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27645000" />
+    <option name="totallyTimeSpent" value="146898000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1373" height="875" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.2354717" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.23396227" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3293011" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30107528" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.15053764" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -315,12 +469,12 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50037736" side_tool="true" weight="0.30376345" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49962264" weight="0.30376345" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3293011" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49962264" weight="0.48252687" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.15994623" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.74566036" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
@@ -328,237 +482,323 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../teachingActionReuse/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../teachingActionReuse/multirun.py">
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/data/AdhocTDActionReuse_1_0.99/_0_1_AGENT_1_RESULTS_eval" />
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/evaluation/exp_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3671">
+        <state relative-caret-position="2280">
+          <caret line="82" column="6" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#248#263#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/psutil/__init__.py">
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/evaluation/wilcoxon_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="362" column="8" selection-start-line="362" selection-start-column="8" selection-end-line="362" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../teachingActionReuse/segment_tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-630" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../teachingActionReuse/replay_buffer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+        <state>
           <folding>
-            <element signature="e#170#188#0" expanded="true" />
+            <element signature="e#182#214#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/oauth2client/service_account.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/pyasn1/type/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../multiagent-particle-envs/multiagent/scenarios/simple_world_comm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2340">
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../multiagent-particle-envs/multiagent/environment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5490">
-          <caret line="7" column="54" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../multiagent-particle-envs/multiagent/core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-965">
-          <caret line="82" column="8" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../multiagent-particle-envs/make_env.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="35" column="43" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../multiagent-particle-envs/multiagent/scenarios/simple.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1410">
-          <caret line="49" column="48" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../multiagent-particle-envs/multiagent/scenarios/simple_spread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../multiagent-particle-envs/bin/interactive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../actionreuse/spreaddomain/__init__.py">
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/evaluation/evaluation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../multiagent-particle-envs/multiagent/policy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/multiagent-0.0.1-py3.5.egg/multiagent/scenarios/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../actionreuse/spreaddomain/interactive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/multiagent-0.0.1-py3.5.egg/multiagent/policy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../actionreuse/spreaddomain/dqn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
-          <folding>
-            <element signature="e#14#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/multiagent-0.0.1-py3.5.egg/multiagent/environment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="199" column="8" selection-start-line="199" selection-start-column="8" selection-end-line="199" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../actionreuse/spreaddomain/simple_spread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-720">
-          <caret column="8" selection-start-column="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/tensorflow/core/protobuf/config_pb2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="1189" selection-start-line="1189" selection-end-line="1189" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../baselines/baselines/deepq/defaults.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../teachingActionReuse/data/Runs/Scripts/20190527-151721-1/dqn-actionreuse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1320">
-          <caret line="643" column="12" selection-start-line="643" selection-start-column="12" selection-end-line="643" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../teachingActionReuse/data/Runs/Scripts/20190527-142224-0/dqn-actionreuse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16270">
-          <caret line="678" column="43" selection-start-line="678" selection-start-column="21" selection-end-line="678" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../teachingActionReuse/dqn-ps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="1158" column="61" selection-start-line="1158" selection-start-column="61" selection-end-line="1158" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../baselines/baselines/deepq/deepq.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="170" column="15" selection-start-line="170" selection-start-column="8" selection-end-line="170" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../teachingActionReuse/gridworld.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2477">
-          <caret line="225" column="49" selection-start-line="225" selection-start-column="49" selection-end-line="225" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../teachingActionReuse/dqn-actionreuse.py">
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/data/AdhocTDActionReuse_1_0.9/_0_1_AGENT_1_RESULTS_eval" />
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/data/AdhocTDActionReuse_1_0.8/_0_30_AGENT_1_RESULTS_eval" />
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/data/AdhocTDActionReuse_1_0.7/_0_60_AGENT_1_RESULTS_eval" />
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/data/AdhocTDActionReuse_1_0.6/_0_90_AGENT_1_RESULTS_eval" />
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/tilecoding.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/read_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/analysis/robotgame/merge.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="236" selection-start-line="235" selection-end-line="236" />
+          <folding>
+            <element signature="e#60#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData1/AdhocTDActionReuse_1_0.6/__EVAL_reward">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dqn-ps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="589" column="50" selection-start-line="589" selection-start-column="50" selection-end-line="589" selection-end-column="50" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/sarsatile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding>
+            <element signature="e#90#130#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/evaluation/exp_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1380">
+          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/AdhocTDActionReuseThree_0.9/_0_1_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7624" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/SARSATile/_0_1_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/SARSATile/_0_2_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14524" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/AdHocTD/_0_4_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11549" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/runhfo.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="4" selection-start-column="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/data/agentData/AdhocTDActionReuse/_0_1_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/data/log/AdHocTD1_agent.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/data/agentData/AdhocTDActionReuse/_0_2_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5194" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/data/log/AdhocTDActionReuse1_agent.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="37222" column="14" selection-start-line="37222" selection-start-column="2" selection-end-line="37222" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/data/log/AdhocTDActionReuse2_agent.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoctdactionreusetwo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/AdhocTDActionReuse_0.9999/_0_30_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/AdhocTDActionReuseTwo_0.99/_0_1_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/AdhocTDActionReuseTwo_0.9999/_0_30_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/AdhocTDActionReuseThree_0.99/_0_1_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/evaluation/evaluation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-450">
+          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="162" column="32" selection-start-line="162" selection-start-column="28" selection-end-line="162" selection-end-column="32" />
+          <folding>
+            <element signature="e#14#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoctdactionreusethree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="136" lean-forward="true" selection-start-line="136" selection-end-line="136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoctdactionreuse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="38" column="20" selection-start-line="38" selection-end-line="39" />
+          <folding>
+            <element signature="e#133#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/AdhocTDActionReuse_0.9/_0_1_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11274" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/AdhocTDActionReuse_0.9/_0_1_AGENT_1_RESULTS_train">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/AdhocTDActionReuse_0.9/_0_2_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/AdHocTD/_0_1_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13960" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/AdHocTD/_0_22_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14710" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/data/agentData2/AdHocTD/_0_3_AGENT_1_RESULTS_eval">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14710" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Merge/merge.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="280" lean-forward="true" selection-start-line="280" selection-end-line="280" />
+          <folding>
+            <element signature="e#60#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/experiment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="210" column="60" selection-start-line="210" selection-start-column="56" selection-end-line="210" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/sarsa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="157" lean-forward="true" selection-start-line="157" selection-end-line="157" />
+          <folding>
+            <element signature="e#15#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dqn-actionreuse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8010">
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gridworld.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-260">
+          <caret line="172" column="74" selection-start-line="172" selection-start-column="74" selection-end-line="172" selection-end-column="74" />
+          <folding>
+            <element signature="e#283#314#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoctd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1620">
+          <caret line="69" column="39" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="39" />
+          <folding>
+            <element signature="e#198#238#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/adhoctdqvalues.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1560">
+          <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="21" />
+          <folding>
+            <element signature="e#133#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/utils/data_path.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/partakersharervisit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="72" column="37" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="37" />
+          <folding>
+            <element signature="e#124#164#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../multiagent/robotsoccer/agents/partakersharertd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding>
+            <element signature="e#110#150#0" expanded="true" />
           </folding>
         </state>
       </provider>

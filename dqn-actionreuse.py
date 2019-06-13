@@ -402,8 +402,6 @@ class Statistics(object):
         self.n_episodes = 0
         self.n_episodes_var = tf.Variable(0)
 
-
-
         self.agent_loss = [0.0 for _ in range(n_agents)]
         self.agent_loss_var = [tf.Variable(0.) for _ in range(n_agents)]
         self.agent_loss_ph = [tf.placeholder(tf.float32) for _ in range(n_agents)]
@@ -427,7 +425,6 @@ class Statistics(object):
         self.average_loss = 0.0
         self.average_loss_var = tf.Variable(0.)
         self.average_loss_ph = tf.placeholder(tf.float32)
-
 
         # Training episodes
         self.episode_reward = 0.0
@@ -638,8 +635,9 @@ class Agent(object):
                         action = prob_id
 
                         # decay the reusing probability
-                        curr_action_probs[prob_id] *= self.decay_reuse_prob
+                        self.advised_action_prob_map[tuple(observation)][prob_id] *= self.decay_reuse_prob
                         break
+
             # no action will be reused, ask for advices
             if action is None:
                 if self.config['use_teaching'] and \
@@ -684,7 +682,13 @@ class Agent(object):
                     self.budget_ask -= 1
 
                     # set the reusing probability
-                    self.advised_action_prob_map[tuple(observation)][action] = self.initial_resue_prob
+                    if self.config['reuse_action']:
+                        if tuple(observation) in self.advised_action_prob_map:
+                            self.advised_action_prob_map[tuple(observation)][action] = self.initial_resue_prob
+                        else:
+                            self.advised_action_prob_map[tuple(observation)] = [0]*self.config['n_actions']
+                            self.advised_action_prob_map[tuple(observation)][action] = self.initial_resue_prob
+
             if action is None:
                 # if there is still no action that will be advised, use the intended action
                 self.last_action_is_advised = False
@@ -808,7 +812,6 @@ class Controller(object):
         video.release()
 
     def update_summary_step(self):
-
         if self.stats.n_training_steps > 0 and \
                 self.stats.n_post_init_steps % self.config['train_period'] == 0 and \
                 self.stats.n_training_steps % self.config['summary_update_period'] == 0:
@@ -902,10 +905,17 @@ class Controller(object):
 
 
 # ======================================================================================================================
+def load_results_to_file(dir_name, file_name, values):
+    with open(os.path.join(dir_name, file_name), 'w') as f:
+        for val in values:
+            f.write(str(val)+"\n")
+        f.close()
 
-def upload_results_to_spreadsheet(worksheet_name, values):
+
+def upload_results_to_google_spreadsheet(worksheet_name, values):
     scope = ['https://spreadsheets.google.com/feeds',
              'https://www.googleapis.com/auth/drive']
+
 
     credentials = ServiceAccountCredentials.from_json_keyfile_name('***TO BE FILLED***', scope)
 
@@ -921,6 +931,7 @@ def upload_results_to_spreadsheet(worksheet_name, values):
         cell.value = str(values[i])
 
     worksheet.update_cells(cell_list)
+
 
 def print_memory_usage():
     print('-- RAM: {}'.format(process.memory_info().rss / (1024 * 1024)))
@@ -988,10 +999,18 @@ def main(config):
     if not os.path.exists(visualizations_dir):
         os.makedirs(visualizations_dir)
 
+    results_dir = os.path.join(runs_local_dir, 'Results')
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+
     save_summary_path = os.path.join(summaries_dir, run_id)
     save_model_path = os.path.join(models_dir, run_id)
     save_scripts_path = os.path.join(copy_scripts_dir, run_id)
     save_visualizations_path = os.path.join(visualizations_dir, run_id)
+    save_results_path = os.path.join(results_dir, run_id)
+
+    if not os.path.exists(save_results_path):
+        os.makedirs(save_results_path)
 
     if not os.path.exists(save_visualizations_path):
         os.makedirs(save_visualizations_path)
@@ -1016,6 +1035,7 @@ def main(config):
     summary_writer = tf.summary.FileWriter(save_summary_path, session.graph)
     saver = tf.train.Saver()
 
+    # don't know what it means
     if config['run_id'] is not None:
         print('Restoring...')
         saver.restore(session, os.path.join(save_model_path, 'model.ckpt'))
@@ -1106,7 +1126,7 @@ def main(config):
                         print("auc:", controller.stats.evaluation_score_auc, "--eval score:",controller.stats.evaluation_score
                               ,'--budget ask and give:', " ".join(controller.get_used_budget()))
 
-                    if controller.stats.n_episodes % 10e3 == 0:
+                    if controller.stats.n_episodes % 1e2 == 0:
                         controller.stats.auc_to_sh.append(controller.stats.evaluation_score_auc)
                         controller.stats.final_to_sh.append(controller.stats.evaluation_score)
 
@@ -1143,18 +1163,8 @@ def main(config):
 
     agents_knowledge_states = [[0, 0, 0], [20, 10, 0], [10, 10, 10]]
 
-    hyperparameters_to_be_uploaded = [run_id,
-     config['use_teaching'],
-     config['advice_asking_mode'],
-     config['advice_giving_mode'],
-     config['threshold_ask'],
-     config['threshold_give'],
-     config['importance_threshold_give'],
-     config['budget_ask'],
-     config['budget_give'],
-     1.0, # config['per_modifier']
-     str('False'), # target correcting
-     config['seed'],
+    hyperparameters_to_be_uploaded = [run_id, config,
+     agents_knowledge_states[config['agents_knowledge_state']],
      str(int(controller.stats.agent_advices_taken_10k[0])),
      str(int(controller.stats.agent_advices_taken_10k[1])),
      str(int(controller.stats.agent_advices_taken_10k[2])),
@@ -1172,9 +1182,7 @@ def main(config):
      '{:.4f}'.format(controller.stats.auc_to_sh[1]),
      '{:.4f}'.format(controller.stats.final_to_sh[1])]
 
-    hyperparameters_to_be_uploaded[1:1] = agents_knowledge_states[config['agents_knowledge_state']]
-
-    upload_results_to_spreadsheet(config['machine_name'], hyperparameters_to_be_uploaded)
+    load_results_to_file(save_results_path, config['machine_name'], hyperparameters_to_be_uploaded)
 
     session.close()
 
@@ -1204,7 +1212,7 @@ if __name__ == '__main__':
 
     # ==================================================================================================================
 
-    parser.add_argument('--max-episodes', type=int, default=20e3)
+    parser.add_argument('--max-episodes', type=int, default=1e3)
     parser.add_argument('--replay-memory-init-size', type=int, default=10e3)
     parser.add_argument('--replay-memory-capacity', type=int, default=25e3)
 
@@ -1221,7 +1229,7 @@ if __name__ == '__main__':
 
     # ==================================================================================================================
 
-    parser.add_argument('--machine-name', type=str, default='LAB-1')
+    parser.add_argument('--machine-name', type=str, default='chauncy')
 
     parser.add_argument('--seed', type=int, default=303)
 
@@ -1235,7 +1243,7 @@ if __name__ == '__main__':
     parser.add_argument('--advice-asking-mode', type=int, default=3)
     parser.add_argument('--advice-giving-mode', type=int, default=1)
 
-    parser.add_argument('--use-teaching', action='store_true', default=False)
+    parser.add_argument('--use-teaching', action='store_true', default=True)
 
     # 0: Scratch, 1: 20-10-0, 2: 10-10-10 (Regional)
     parser.add_argument('--agents-knowledge-state', type=int, default=0)

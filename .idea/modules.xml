@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Merge/.idea/Merge.iml" filepath="$PROJECT_DIR$/../Merge/.idea/Merge.iml" />
       <module fileurl="file://$PROJECT_DIR$/../actionreuse/.idea/actionreuse.iml" filepath="$PROJECT_DIR$/../actionreuse/.idea/actionreuse.iml" />
       <module fileurl="file://$PROJECT_DIR$/../baselines/.idea/baselines.iml" filepath="$PROJECT_DIR$/../baselines/.idea/baselines.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../multiagent/.idea/multiagent.iml" filepath="$PROJECT_DIR$/../multiagent/.idea/multiagent.iml" />
       <module fileurl="file://$PROJECT_DIR$/../multiagent-particle-envs/.idea/multiagent-particle-envs.iml" filepath="$PROJECT_DIR$/../multiagent-particle-envs/.idea/multiagent-particle-envs.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../teachingActionReuse/.idea/teachingActionReuse.iml" filepath="$PROJECT_DIR$/../teachingActionReuse/.idea/teachingActionReuse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spreaddomain.iml" filepath="$PROJECT_DIR$/.idea/spreaddomain.iml" />
     </modules>
   </component>
 </project>

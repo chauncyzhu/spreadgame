@@ -617,11 +617,13 @@ class Agent(object):
         else:
             action = None
             intended_action = self.model.greedy_action(observation)
+            # print("intended_action:", intended_action)
 
             if self.config['use_teaching'] and \
                     self.budget_ask > 0 and \
                     uncertainty >= self.config['threshold_ask']:
 
+                # print("ask for actions")
                 if self.config['advice_asking_mode'] == 0:  # Oracle advice
                     action = self.best_action(observation)
 
@@ -648,7 +650,9 @@ class Agent(object):
                     advices = [agent.give_advice(observation, intended_action) for agent in self.other_agents]
                     advices = list(filter(None.__ne__, advices))
 
+
                     if advices:
+                        # print("ask for advices:", advices)
                         advices = np.array(advices)
                         bin_count = np.bincount(advices, minlength=5)
                         action = np.random.choice(np.flatnonzero(bin_count == bin_count.max()))
@@ -753,6 +757,11 @@ class Controller(object):
             self.stats.episode_reward = 0
             self.stats.n_episodes += 1
 
+    def get_used_budget(self):
+        budgets = [[self.config['budget_ask'] - agent.budget_ask, self.config['budget_give'] - agent.budget_give]
+                   for agent in self.agents]
+        return np.mean(budgets, axis=0).astype(str)
+
     def observe(self, experience):
         for i, agent in enumerate(self.agents):
             agent.observe((experience[i][0],  # previous_observation
@@ -775,7 +784,6 @@ class Controller(object):
         video.release()
 
     def update_summary_step(self):
-
         if self.stats.n_training_steps > 0 and \
                 self.stats.n_post_init_steps % self.config['train_period'] == 0 and \
                 self.stats.n_training_steps % self.config['summary_update_period'] == 0:
@@ -869,6 +877,11 @@ class Controller(object):
 
 
 # ======================================================================================================================
+def load_results_to_file(dir_name, file_name, values):
+    with open(os.path.join(dir_name, file_name), 'w') as f:
+        for val in values:
+            f.write(str(val)+"\n")
+        f.close()
 
 def upload_results_to_spreadsheet(worksheet_name, values):
     scope = ['https://spreadsheets.google.com/feeds',
@@ -954,10 +967,15 @@ def main(config):
     if not os.path.exists(visualizations_dir):
         os.makedirs(visualizations_dir)
 
+    results_dir = os.path.join(runs_local_dir, 'Results')
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+
     save_summary_path = os.path.join(summaries_dir, run_id)
     save_model_path = os.path.join(models_dir, run_id)
     save_scripts_path = os.path.join(copy_scripts_dir, run_id)
     save_visualizations_path = os.path.join(visualizations_dir, run_id)
+    save_results_path = os.path.join(results_dir, run_id)
 
     if not os.path.exists(save_visualizations_path):
         os.makedirs(save_visualizations_path)
@@ -997,8 +1015,8 @@ def main(config):
         session.run(tf.global_variables_initializer())
 
     if config['agents_knowledge_state'] == 1:
-        controller.agents[0].restore('20190314-182524-3', 20000)
-        controller.agents[1].restore('20190314-182524-3', 10000)
+        controller.agents[0].restore('20190527-161558-0', 20000)
+        controller.agents[1].restore('20190527-161558-0', 10000)
 
     elif config['agents_knowledge_state'] == 2:
         controller.agents[0].restore('20190316-020132-1-1', 10000)
@@ -1016,6 +1034,7 @@ def main(config):
 
     while True:
 
+        # the end of each episode
         if done:
             if controller.stats.n_episodes > 0:
                 controller.update_summary_episode()
@@ -1023,6 +1042,7 @@ def main(config):
                 if controller.stats.n_episodes % config['model_save_period'] == 0:
                     controller.save_model()
 
+            # evaluate the policy at every 100 episodes
             if controller.stats.n_episodes % config['evaluation_period'] == 0:
 
                 render = controller.stats.n_episodes > 0 and controller.stats.n_episodes % 10e3 == 0
@@ -1041,9 +1061,13 @@ def main(config):
                 controller.stats.evaluation_score = 0.0
                 e_episode_reward = 0
 
+                # the number of evaluation episodes is n_evaluation_levels
                 for evaluation_step in range(config['n_evaluation_levels']):
                     if e_done:
+                        # do not add the episode reward and number of episodes
                         controller.init(evaluation=True)
+
+                        # used the evaluation_step-th randomly initilized world map
                         e_obs = env.reset(evaluation_level_id=evaluation_step, render=render)
                         e_episode_reward = 0
                         e_done = False
@@ -1055,32 +1079,34 @@ def main(config):
                         e_episode_reward += e_reward
 
                         if e_done:
-
+                            # in the evaluation episode, the score is the cumulatived rewards
                             controller.stats.evaluation_score += e_episode_reward
 
-                            if render:
-
+                            if render:  # for each 10000 episodes
                                 obs_images, obs_trace_image = env.get_visualization()
-
                                 controller.write_video(obs_images,
                                                        os.path.join(controller.evaluation_dir, str(evaluation_step)))
-
                                 cv2.imwrite(os.path.join(controller.evaluation_dir, str(evaluation_step)) + '.png',
                                             obs_trace_image)
 
+                # after the evaluation step
                 controller.stats.evaluation_score /= max_eval_scores
 
                 if controller.stats.n_episodes > 0:
                     controller.stats.evaluation_score_auc += np.trapz([controller.stats.evaluation_score_last,
                                                                        controller.stats.evaluation_score])
 
-                    if controller.stats.n_episodes % 2e3 == 0:
-                        print(controller.stats.evaluation_score_auc, controller.stats.evaluation_score)
+                    if controller.stats.n_episodes % 1e3 == 0:
+                        print("auc:", controller.stats.evaluation_score_auc, "--eval score:",controller.stats.evaluation_score
+                              ,'--budget ask and give:', " ".join(controller.get_used_budget()))
+
+                        # print(controller.stats.evaluation_score_auc, controller.stats.evaluation_score)
 
                     if controller.stats.n_episodes % 10e3 == 0:
                         controller.stats.auc_to_sh.append(controller.stats.evaluation_score_auc)
                         controller.stats.final_to_sh.append(controller.stats.evaluation_score)
 
+                # the evaluation score of last evaluation period
                 controller.stats.evaluation_score_last = controller.stats.evaluation_score
 
                 for i, agent in enumerate(controller.agents):
@@ -1092,7 +1118,9 @@ def main(config):
                 if controller.stats.n_episodes == config['max_episodes']:
                     break
 
+            # the end of training episode
             if controller.stats.n_episodes < config['max_episodes']:
+                # every time the world init, n_episodes + 1
                 controller.init()
 
                 obs = env.reset(curriculum_level=None)
@@ -1104,6 +1132,7 @@ def main(config):
 
         obs, reward, done = env.step(actions)
 
+        # the experience of each agent
         controller.observe([(obs_prev[i], actions[i], reward, obs[i], float(done)) for i in range(config['n_agents'])])
         controller.update_summary_step()
 
@@ -1114,18 +1143,8 @@ def main(config):
 
     agents_knowledge_states = [[0, 0, 0], [20, 10, 0], [10, 10, 10]]
 
-    hyperparameters_to_be_uploaded = [run_id,
-     config['use_teaching'],
-     config['advice_asking_mode'],
-     config['advice_giving_mode'],
-     config['threshold_ask'],
-     config['threshold_give'],
-     config['importance_threshold_give'],
-     config['budget_ask'],
-     config['budget_give'],
-     1.0, # config['per_modifier']
-     str('False'), # target correcting
-     config['seed'],
+    hyperparameters_to_be_uploaded = [run_id, config,
+     agents_knowledge_states[config['agents_knowledge_state']],
      str(int(controller.stats.agent_advices_taken_10k[0])),
      str(int(controller.stats.agent_advices_taken_10k[1])),
      str(int(controller.stats.agent_advices_taken_10k[2])),
@@ -1143,9 +1162,7 @@ def main(config):
      '{:.4f}'.format(controller.stats.auc_to_sh[1]),
      '{:.4f}'.format(controller.stats.final_to_sh[1])]
 
-    hyperparameters_to_be_uploaded[1:1] = agents_knowledge_states[config['agents_knowledge_state']]
-
-    upload_results_to_spreadsheet(config['machine_name'], hyperparameters_to_be_uploaded)
+    load_results_to_file(save_results_path, config['machine_name'], hyperparameters_to_be_uploaded)
 
     session.close()
 
@@ -1156,12 +1173,12 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Description of your program')
 
     parser.add_argument('--run-id', type=str, default=None)
-    parser.add_argument('--process-index', type=int, default=0)
+    parser.add_argument('--process-index', type=int, default=10)
     parser.add_argument('--evaluation-seed', type=int, default=200)
 
     parser.add_argument('--game-height', type=int, default=10)
     parser.add_argument('--game-width', type=int, default=10)
-    parser.add_argument('--t-max', type=int, default=25)
+    parser.add_argument('--t-max', type=int, default=25)  # the maximum time step of each episode
     parser.add_argument('--n-agents', type=int, default=3)
     parser.add_argument('--n-landmarks', type=int, default=3)
     parser.add_argument('--n-actions', type=int, default=5)
@@ -1175,7 +1192,7 @@ if __name__ == '__main__':
 
     # ==================================================================================================================
 
-    parser.add_argument('--max-episodes', type=int, default=20e3)
+    parser.add_argument('--max-episodes', type=int, default=10e3)
     parser.add_argument('--replay-memory-init-size', type=int, default=10e3)
     parser.add_argument('--replay-memory-capacity', type=int, default=25e3)
 
@@ -1204,7 +1221,7 @@ if __name__ == '__main__':
     parser.add_argument('--budget-give', type=float, default=5000)
 
     parser.add_argument('--advice-asking-mode', type=int, default=3)
-    parser.add_argument('--advice-giving-mode', type=int, default=1)
+    parser.add_argument('--advice-giving-mode', type=int, default=0)
 
     parser.add_argument('--use-teaching', action='store_true', default=False)
 

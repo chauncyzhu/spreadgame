@@ -104,7 +104,7 @@ class PrioritizedReplayBuffer(ReplayBuffer):
         """See ReplayBuffer.store_effect"""
 
         idx = self._next_idx
-        super().add(*args, **kwargs)
+        super(ReplayBuffer).add(*args, **kwargs)
 
         # print(args[-1])
 

@@ -7,6 +7,7 @@
     <orderEntry type="module" module-name="multiagent-particle-envs" />
     <orderEntry type="module" module-name="actionreuse" />
     <orderEntry type="module" module-name="Merge" />
+    <orderEntry type="module" module-name="multiagent" />
   </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="pytest" />

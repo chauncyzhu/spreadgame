@@ -283,12 +283,14 @@ class DQN(object):
                 if self.self_n_training_steps % self.config['target_update_period'] == 0:
                     session.run(self.update_target_weights)
 
+
     def get_state_uncertainty(self, observation):
         feed_dict = {}
         feed_dict.update({self.s_exp_f: [observation.astype(dtype=np.float32)]})
         feed_dict.update({self.s_exp_m: [observation.astype(dtype=np.float32)]})
         val_exp_f, val_exp_t = session.run([self.val_exp_f, self.val_exp_m], feed_dict=feed_dict)
         return np.sqrt(np.power(val_exp_f[0][0] - val_exp_t[0][0], 2))
+
 
     def train_network(self):
         if self.id == 0:
@@ -374,7 +376,6 @@ class DQN(object):
 
         self.replay_memory.update_priorities(batch_idx, np.abs(error[:bs]) + float(1e-6))
             #self.replay_memory_ts.update_priorities(batch_idx[batch_size:], np.abs(error[batch_size:]) + float(1e-6))
-
 
 
         self.stats.agent_loss[self.id] += loss
@@ -750,6 +751,7 @@ class Controller(object):
         self.asopsat = []
         for i in range(self.config['n_agents']):
             self.asopsat.append(self.stats.agent_advices_taken_var[i].assign(self.stats.agent_advices_taken_ph[i]))
+
 
     def init(self, evaluation=False):
         if not evaluation:
